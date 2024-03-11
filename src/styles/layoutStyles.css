@@ -1,0 +1,7 @@
+.container{
+    @apply max-w-sm m-auto;
+}
+
+.flex-items{
+    @apply flex items-center;
+}
