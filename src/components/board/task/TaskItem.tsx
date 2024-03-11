@@ -1,16 +1,13 @@
+"use client";
 import Image from "next/image";
 import React from "react";
+import IconCover from "../../ui/IconCover";
 
 type Props = {
-  icon: "alarm-clock" | "weight-lift" | "coffee-cup" | "books";
-  status: "in-progress" | "to-do" | "wont-do" | "completed";
+  icon: Icon;
+  status: Status;
   title: string;
   desc?: string;
-};
-
-type IconCoverProps = {
-  children: React.ReactNode;
-  bg: string;
 };
 
 const icons = {
@@ -37,17 +34,6 @@ const statusInfo = {
     iconBg: "#DD524C",
     bg: "#F7D4D3",
   },
-};
-
-const IconCover = ({ children, bg }: IconCoverProps) => {
-  return (
-    <div
-      style={{ backgroundColor: bg }}
-      className={`w-[50px] h-[50px] rounded-xl flex items-center justify-center`}
-    >
-      {children}
-    </div>
-  );
 };
 
 const TaskItem = ({ icon, status, title, desc }: Props) => {

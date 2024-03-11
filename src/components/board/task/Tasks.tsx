@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import TaskItem from "./TaskItem";
 
@@ -5,7 +6,7 @@ type Props = {};
 
 const Tasks = (props: Props) => {
   return (
-    <div className="grid gap-5">
+    <div className="grid gap-5 mb-5">
       <TaskItem
         icon="alarm-clock"
         status="in-progress"
