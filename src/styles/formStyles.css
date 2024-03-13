@@ -1,0 +1,60 @@
+.form{
+    @apply grid gap-4 w-full
+}
+
+.field{
+    @apply grid gap-1
+}
+
+.label{
+    @apply text-[#97A3B6]
+}
+
+.input{
+    @apply border border-gray-300 rounded-md text-black py-2 px-3 w-full
+}
+
+.icon-radio-group{
+    @apply flex gap-4 flex-wrap
+}
+
+.icon-radio-group input[type="radio"], 
+.status-radio-group input[type="radio"]{
+    @apply sr-only
+} 
+
+.icon-radio-group label{
+    @apply inline-block cursor-pointer p-3 bg-[#E3E8EF] rounded-xl 
+}
+
+.icon-radio-group input[type="radio"]:checked + label {
+    @apply outline outline-[3px] outline-[#3662E3]
+}
+
+.icon-radio-group input[type="radio"]:focus + label {
+    @apply bg-gray-300
+}
+
+.status-radio-group{
+    @apply grid grid-cols-2 gap-2
+}
+
+.status-radio-group label{
+    @apply flex items-center gap-2 font-semibold rounded-xl p-0.5 pr-3 border-[3px] border-[#E3E8EF] cursor-pointer  
+}
+
+.status-radio-group label span {
+    @apply hidden
+}
+
+.status-radio-group input[type="radio"]:checked + label {
+    @apply border-[#3662E3]
+}
+
+.status-radio-group input[type="radio"]:checked + label span {
+    @apply flex
+}
+
+.button{
+    @apply flex items-center gap-2 px-5 py-2 text-white rounded-3xl
+}

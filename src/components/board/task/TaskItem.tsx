@@ -2,19 +2,13 @@
 import Image from "next/image";
 import React from "react";
 import IconCover from "../../ui/IconCover";
+import { icons } from "@/constants";
 
 type Props = {
   icon: Icon;
   status: Status;
   title: string;
   desc?: string;
-};
-
-const icons = {
-  "alarm-clock": "/assets/alarm-clock.svg",
-  "weight-lift": "/assets/weight-lift.svg",
-  "coffee-cup": "/assets/coffee-cup.svg",
-  books: "/assets/books.svg",
 };
 
 const statusInfo = {
