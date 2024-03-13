@@ -6,7 +6,7 @@ type Props = {};
 
 const Tasks = (props: Props) => {
   return (
-    <div className="grid gap-5 mb-5">
+    <div className="grid gap-3 mb-3 sm:gap-5 sm:mb-5">
       <TaskItem
         icon="alarm-clock"
         status="in-progress"

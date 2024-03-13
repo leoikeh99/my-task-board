@@ -5,7 +5,7 @@ import "@/styles/layoutStyles.css";
 export default function Home() {
   return (
     <main>
-      <div className="w-[min(95%,32rem)] m-auto pt-16 md:pt-24">
+      <div className="w-[min(93%,32rem)] m-auto pt-10 xxs:pt-16 md:pt-24">
         <Board />
         <AddTask />
       </div>

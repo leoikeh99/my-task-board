@@ -15,19 +15,20 @@ const Board = (props: Props) => {
       <BoardInfo />
       <Tasks />
       <button
-        className="w-full p-4 rounded-xl flex justify-between gap-1 bg-[#F5E8D5]"
+        className="w-full p-3 sm:p-4 rounded-xl flex justify-between gap-1 bg-[#F5E8D5]"
         onClick={() => openSideBar("add task")}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex gap-2 sm:gap-4 items-center">
           <IconCover bg="#E9A23B">
             <Image
               src="/assets/Add_round_duotone.svg"
               alt=""
-              width={25}
-              height={25}
+              width={0}
+              height={0}
+              className="h-[1.25rem] w-[1.25rem] sm:h-[1.563rem] sm:w-[1.563rem]"
             />
           </IconCover>
-          <p className="font-bold text-lg text-left">Add new task</p>
+          <p className="font-bold sm:text-lg text-left">Add new task</p>
         </div>
       </button>
     </div>

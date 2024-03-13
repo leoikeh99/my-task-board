@@ -34,14 +34,20 @@ const TaskItem = ({ icon, status, title, desc }: Props) => {
   return (
     <button
       style={{ backgroundColor: statusInfo[status].bg }}
-      className="p-4 rounded-xl flex justify-between gap-1"
+      className="p-3 sm:p-4 rounded-xl flex justify-between gap-1"
     >
-      <div className="flex gap-4">
+      <div className="flex gap-2 sm:gap-4">
         <IconCover bg="white">
-          <Image src={icons[icon]} alt="" width={25} height={25} />
+          <Image
+            src={icons[icon]}
+            alt=""
+            width={0}
+            height={0}
+            className="h-[1.25rem] w-[1.25rem] sm:h-[1.563rem] sm:w-[1.563rem]"
+          />
         </IconCover>
         <div className="self-center">
-          <p className="font-bold text-lg text-left">{title}</p>
+          <p className="font-bold sm:text-lg text-left">{title}</p>
           {desc && (
             <p className="text-left text-sm max-w-64 text-gray-700">{desc}</p>
           )}
@@ -49,7 +55,13 @@ const TaskItem = ({ icon, status, title, desc }: Props) => {
       </div>
       {status !== "to-do" && (
         <IconCover bg={statusInfo[status].iconBg}>
-          <Image src={statusInfo[status].icon} alt="" width={25} height={25} />
+          <Image
+            src={statusInfo[status].icon}
+            alt=""
+            width={0}
+            height={0}
+            className="h-[1.25rem] w-[1.25rem] sm:h-[1.563rem] sm:w-[1.563rem]"
+          />
         </IconCover>
       )}
     </button>
