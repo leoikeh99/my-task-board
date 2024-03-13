@@ -35,11 +35,14 @@ const AddTask = () => {
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >
-          <div className="fixed top-0 right-0 h-screen w-[min(98%,650px)] flex flex-col justify-center">
+          <div className="fixed top-0 right-0 h-dvh w-[min(97%,650px)] flex flex-col justify-center">
             <Dialog.Panel className="max-h-[97%] bg-white p-5 mr-3 flex-1 rounded-lg overflow-y-auto">
               <div className="flex justify-between items-center mb-5">
                 <p className="font-semibold text-xl">Add new task</p>
-                <button className="border border-gray-300 rounded-md ">
+                <button
+                  className="border border-gray-300 rounded-md"
+                  onClick={closeSidebar}
+                >
                   <IconCover size="sm" bg="transparent">
                     <Image
                       src="/assets/close_ring_duotone-1.svg"

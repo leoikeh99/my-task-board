@@ -6,7 +6,7 @@ type Props = {};
 
 const BoardInfo = (props: Props) => {
   return (
-    <div className="xxs:flex items-start gap-4 mb-10">
+    <div className="xxs:flex items-start gap-2 xs:gap-4 mb-10">
       <Image
         src="/assets/Logo.svg"
         alt="logo"
