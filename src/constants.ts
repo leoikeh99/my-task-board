@@ -1,28 +1,28 @@
 export const icons = {
-  "alarm-clock": "/assets/alarm-clock.svg",
-  "weight-lift": "/assets/weight-lift.svg",
-  "coffee-cup": "/assets/coffee-cup.svg",
-  books: "/assets/books.svg",
+  ALARM_CLOCK: "/assets/alarm-clock.svg",
+  WEIGHT_LIFT: "/assets/weight-lift.svg",
+  COFFEE_CUP: "/assets/coffee-cup.svg",
+  BOOK: "/assets/books.svg",
 };
 
 export const statusInfo = {
-  "in-progress": {
+  IN_PROGRESS: {
     icon: "/assets/Time_atack_duotone.svg",
     iconBg: "#E9A23B",
     bg: "#F5D565",
-    name: "In Progress",
+    title: "In Progress",
   },
-  "to-do": { icon: undefined, iconBg: undefined, bg: "#E3E8EF", name: "To Do" },
-  completed: {
+  TODO: { icon: undefined, iconBg: undefined, bg: "#E3E8EF", title: "To Do" },
+  COMPLETED: {
     icon: "/assets/Done_round_duotone.svg",
     iconBg: "#32D657",
     bg: "#A0ECB1",
-    name: "Completed",
+    title: "Completed",
   },
-  "wont-do": {
+  WONT_DO: {
     icon: "/assets/close_ring_duotone.svg",
     iconBg: "#DD524C",
     bg: "#F7D4D3",
-    name: "Won't Do",
+    title: "Wont Do",
   },
 };

@@ -1,25 +1,24 @@
 "use client";
 import React from "react";
 import TaskItem from "./TaskItem";
+import { Task } from "@prisma/client";
 
-type Props = {};
+type Props = {
+  tasks: Array<Task>;
+};
 
-const Tasks = (props: Props) => {
+const Tasks = ({ tasks }: Props) => {
   return (
     <div className="grid gap-3 mb-3 sm:gap-5 sm:mb-5">
-      <TaskItem
-        icon="alarm-clock"
-        status="in-progress"
-        title="Task in progress"
-      />
-      <TaskItem icon="weight-lift" status="completed" title="Task completed" />
-      <TaskItem icon="coffee-cup" status="wont-do" title="Task wont do" />
-      <TaskItem
-        icon="books"
-        status="to-do"
-        title="Task to do"
-        desc="Work on a challenge on devchallenges.io, learn Typescript"
-      />
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          title={task.title}
+          desc={task.desc}
+          icon={task.icon}
+          status={task.status}
+        />
+      ))}
     </div>
   );
 };

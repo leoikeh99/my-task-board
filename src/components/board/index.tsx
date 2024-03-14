@@ -5,15 +5,18 @@ import Tasks from "./task/Tasks";
 import IconCover from "../ui/IconCover";
 import Image from "next/image";
 import { SettingsContext } from "@/context/SettingsContext";
+import { Board, Task } from "@prisma/client";
 
-type Props = {};
+type Props = {
+  board: Board & { tasks: Array<Task> };
+};
 
-const Board = (props: Props) => {
+const Board = ({ board }: Props) => {
   const { openSideBar } = useContext(SettingsContext);
   return (
     <div>
-      <BoardInfo />
-      <Tasks />
+      <BoardInfo board={board} />
+      <Tasks tasks={board.tasks} />
       <button
         className="w-full p-3 sm:p-4 rounded-xl flex justify-between gap-1 bg-[#F5E8D5]"
         onClick={() => openSideBar("add task")}

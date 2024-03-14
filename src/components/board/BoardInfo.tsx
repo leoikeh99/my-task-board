@@ -1,10 +1,13 @@
 "use client";
+import { Board } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
+type Props = {
+  board: Board;
+};
 
-const BoardInfo = (props: Props) => {
+const BoardInfo = ({ board }: Props) => {
   return (
     <div className="xxs:flex items-start gap-2 xs:gap-4 mb-10">
       <Image
@@ -16,7 +19,7 @@ const BoardInfo = (props: Props) => {
       />
       <div>
         <div className="flex items-center gap-3 mb-3">
-          <h1 className="text-[2rem] md:text-[2.5rem]">My Task Board</h1>
+          <h1 className="text-[2rem] md:text-[2.5rem]">{board.title}</h1>
           <button>
             <Image
               src="/assets/Edit_duotone.svg"
@@ -27,7 +30,7 @@ const BoardInfo = (props: Props) => {
             />
           </button>
         </div>
-        <p>Tasks to keep organized.</p>
+        <p>{board.desc}</p>
       </div>
     </div>
   );

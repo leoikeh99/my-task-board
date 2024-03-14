@@ -1,12 +1,13 @@
 "use client";
+import "@/styles/formStyles.css";
 import IconCover from "@/components/ui/IconCover";
+import Image from "next/image";
+import IconRadioGroup from "./IconRadioGroup";
+import StatusRadioGroup from "./StatusRadioGroup";
 import { SettingsContext } from "@/context/SettingsContext";
 import { Dialog, Transition } from "@headlessui/react";
-import Image from "next/image";
-import React, { Fragment, useContext } from "react";
-import "@/styles/formStyles.css";
+import { Fragment, useContext } from "react";
 import { createTaskAction } from "@/app/action";
-import { icons, statusInfo } from "@/constants";
 
 const AddTask = () => {
   const { sidebar, closeSidebar } = useContext(SettingsContext);
@@ -59,18 +60,22 @@ const AddTask = () => {
                 action={createTaskAction}
               >
                 <div className="field">
-                  <label htmlFor="name" className="label">
+                  <label htmlFor="title" className="label">
                     Task name
                   </label>
-                  <input name="name" placeholder="John Doe" className="input" />
+                  <input
+                    name="title"
+                    placeholder="Enter task name"
+                    className="input"
+                  />
                 </div>
                 <div className="field">
                   <label htmlFor="desc" className="label">
-                    Task name
+                    Task description
                   </label>
                   <textarea
                     name="desc"
-                    placeholder="John Doe"
+                    placeholder="Enter a short task description"
                     className="input h-44"
                   />
                 </div>
@@ -78,68 +83,13 @@ const AddTask = () => {
                   <label htmlFor="" className="label">
                     Icons
                   </label>
-                  <div className="icon-radio-group">
-                    {Object.entries(icons).map(([key, value], index) => (
-                      <div key={key}>
-                        <input
-                          type="radio"
-                          id={key}
-                          name="icon"
-                          value={key}
-                          defaultChecked={index === 0}
-                        />
-                        <label htmlFor={key}>
-                          <Image
-                            src={value}
-                            alt={`${key} icon`}
-                            width={25}
-                            height={25}
-                          />
-                        </label>
-                      </div>
-                    ))}
-                  </div>
+                  <IconRadioGroup />
                 </div>
                 <div className="field">
                   <label htmlFor="" className="label">
                     Status
                   </label>
-                  <div className="status-radio-group">
-                    {Object.entries(statusInfo).map(
-                      ([key, value], index) =>
-                        value.iconBg &&
-                        value.icon && (
-                          <div key={key}>
-                            <input
-                              type="radio"
-                              id={key}
-                              name="status"
-                              value={key}
-                              defaultChecked={index === 0}
-                            />
-                            <label htmlFor={key}>
-                              <IconCover bg={value.iconBg}>
-                                <Image
-                                  src={value.icon}
-                                  alt={`${key} icon`}
-                                  width={25}
-                                  height={25}
-                                />
-                              </IconCover>
-                              {value.name}
-                              <span className="bg-[#3662E3] rounded-full h-[20px] w-[20px] flex items-center justify-center ml-auto">
-                                <Image
-                                  src="/assets/done_round.svg"
-                                  alt=""
-                                  width={13}
-                                  height={13}
-                                />
-                              </span>
-                            </label>
-                          </div>
-                        )
-                    )}
-                  </div>
+                  <StatusRadioGroup />
                 </div>
                 <div className="flex justify-end mt-5">
                   <button className="button bg-[#3662E3]">

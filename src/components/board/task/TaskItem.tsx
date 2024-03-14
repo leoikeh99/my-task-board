@@ -3,27 +3,28 @@ import Image from "next/image";
 import React from "react";
 import IconCover from "../../ui/IconCover";
 import { icons } from "@/constants";
+import { $Enums } from "@prisma/client";
 
 type Props = {
-  icon: Icon;
-  status: Status;
+  icon: $Enums.Icon;
+  status: $Enums.Status;
   title: string;
   desc?: string;
 };
 
 const statusInfo = {
-  "in-progress": {
+  IN_PROGRESS: {
     icon: "/assets/Time_atack_duotone.svg",
     iconBg: "#E9A23B",
     bg: "#F5D565",
   },
-  "to-do": { bg: "#E3E8EF" },
-  completed: {
+  TODO: { bg: "#E3E8EF" },
+  COMPLETED: {
     icon: "/assets/Done_round_duotone.svg",
     iconBg: "#32D657",
     bg: "#A0ECB1",
   },
-  "wont-do": {
+  WONT_DO: {
     icon: "/assets/close_ring_duotone.svg",
     iconBg: "#DD524C",
     bg: "#F7D4D3",
@@ -53,7 +54,7 @@ const TaskItem = ({ icon, status, title, desc }: Props) => {
           )}
         </div>
       </div>
-      {status !== "to-do" && (
+      {status !== "TODO" && (
         <IconCover bg={statusInfo[status].iconBg}>
           <Image
             src={statusInfo[status].icon}

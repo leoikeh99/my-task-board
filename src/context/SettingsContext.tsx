@@ -27,9 +27,7 @@ const contextDefaultValues: ContextState = {
 export const SettingsContext = createContext(contextDefaultValues);
 
 const SettingsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [sidebar, setSidebar] = useState<ContextState["sidebar"]>({
-    type: "add task",
-  });
+  const [sidebar, setSidebar] = useState<ContextState["sidebar"]>(null);
 
   const closeSidebar = () => setSidebar(null);
 
