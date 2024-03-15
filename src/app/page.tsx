@@ -1,22 +1,12 @@
 import Board from "@/components/board";
 import AddTask from "@/components/board/task/forms/AddTask";
-import "@/styles/layoutStyles.css";
-import { getServerSession } from "next-auth";
-import authOptions from "./api/auth/[...nextauth]/authOptions";
-import prisma from "@/lib/prisma";
 import { Fragment, Suspense } from "react";
+import { getUserBoard } from "@/lib/user";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
-
-  const userBoard = await prisma.board.findFirst({
-    where: {
-      userId: session?.user?.id,
-    },
-    include: {
-      tasks: true,
-    },
-  });
+  noStore();
+  const userBoard = await getUserBoard();
 
   return (
     <main>
@@ -25,7 +15,7 @@ export default async function Home() {
           {userBoard ? (
             <Fragment>
               <Board board={userBoard} />
-              <AddTask />
+              <AddTask boardId={userBoard.id} />
             </Fragment>
           ) : (
             <div>Create your first board</div>

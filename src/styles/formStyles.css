@@ -11,7 +11,7 @@
 }
 
 .input{
-    @apply border border-gray-300 rounded-md text-black py-2 px-3 w-full
+    @apply border rounded-md text-black py-2 px-3 w-full
 }
 
 .icon-radio-group{
@@ -40,7 +40,7 @@
 }
 
 .status-radio-group label{
-    @apply flex items-center gap-2 font-semibold rounded-xl p-0.5 pr-3 border-[3px] border-[#E3E8EF] cursor-pointer  
+    @apply flex items-center gap-2 font-semibold rounded-xl p-1 pr-3 border-[3px] border-[#E3E8EF] cursor-pointer  
 }
 
 .status-radio-group label span {
@@ -56,5 +56,9 @@
 }
 
 .button{
-    @apply flex items-center gap-2 px-5 py-2 text-white rounded-3xl
+    @apply flex items-center gap-3 px-5 py-2 text-white rounded-3xl cursor-pointer
+}
+
+.button:disabled{
+    @apply cursor-not-allowed opacity-60
 }
