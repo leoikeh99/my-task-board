@@ -6,21 +6,18 @@ import IconRadioGroup from "./IconRadioGroup";
 import StatusRadioGroup from "./StatusRadioGroup";
 import { SettingsContext } from "@/context/SettingsContext";
 import { useContext, useEffect } from "react";
-import { createTaskAction } from "@/app/action";
+import { deleteTaskAction, editTaskAction } from "@/app/action";
 import { useFormState } from "react-dom";
 import { classNames } from "@/utils";
 import ActionButton from "@/components/forms/ActionButton";
 
-type Props = {
-  boardId: string;
-};
-
-const AddTask = ({ boardId }: Props) => {
-  const [formState, wrappedCreateTaskAction] = useFormState(createTaskAction, {
-    title: "",
-    desc: "",
-    icon: "ALARM_CLOCK",
-    status: "IN_PROGRESS",
+const EditTask = () => {
+  const { sidebar, closeSidebar } = useContext(SettingsContext);
+  const [formState, wrappedEditTaskAction] = useFormState(editTaskAction, {
+    title: sidebar?.taskData?.title || "",
+    desc: sidebar?.taskData?.desc || "",
+    icon: sidebar?.taskData?.icon || "ALARM_CLOCK",
+    status: sidebar?.taskData?.status || "IN_PROGRESS",
     errors: {
       title: undefined,
       desc: undefined,
@@ -28,19 +25,26 @@ const AddTask = ({ boardId }: Props) => {
     },
     success: false,
   });
-  const { sidebar, closeSidebar } = useContext(SettingsContext);
-
-  const show = sidebar && sidebar.type === "add task" ? true : false;
+  const [deleteState, wrappedDeleteTaskAction] = useFormState(
+    deleteTaskAction,
+    {
+      errors: {
+        main: undefined,
+      },
+      success: false,
+    }
+  );
 
   useEffect(() => {
-    if (formState.success) {
+    if (formState.success || deleteState.success) {
       closeSidebar();
     }
-  }, [formState]);
+  }, [formState, deleteState]);
+
   return (
     <div>
       <div className="flex justify-between items-center p-3 sticky top-0 left-0 w-full bg-white border-b-[1px] border-b-gray-300">
-        <p className="font-semibold text-xl">Add new task</p>
+        <p className="font-semibold text-xl">Edit task</p>
         <button
           className="border border-gray-300 rounded-md"
           onClick={closeSidebar}
@@ -55,13 +59,13 @@ const AddTask = ({ boardId }: Props) => {
           </IconCover>
         </button>
       </div>
-      <form aria-labelledby="add-new-task" action={wrappedCreateTaskAction}>
+      <form aria-labelledby="add-new-task">
         <div className="p-5 pb-0 grid gap-2">
           <div className="field">
             <input
               type="text"
-              name="boardId"
-              value={boardId}
+              name="taskId"
+              value={sidebar?.taskData?.id}
               readOnly
               className="hidden"
             />
@@ -125,12 +129,22 @@ const AddTask = ({ boardId }: Props) => {
             <StatusRadioGroup defaultValue={formState.status} />
           </div>
         </div>
-        <div className="flex justify-end mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
-          <ActionButton text="Cretae task" icon="/assets/done_round.svg" />
+        <div className="flex justify-end gap-4 mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
+          <ActionButton
+            text="Delete"
+            icon="/assets/trash.svg"
+            action={wrappedDeleteTaskAction}
+            bg="bg-[#97A3B6]"
+          />
+          <ActionButton
+            text="Save"
+            icon="/assets/done_round.svg"
+            action={wrappedEditTaskAction}
+          />
         </div>
       </form>
     </div>
   );
 };
 
-export default AddTask;
+export default EditTask;

@@ -18,8 +18,8 @@ const BoardInfo = ({ board }: Props) => {
         className="h-[2.5rem] w-[2.5rem] md:h-[3.125rem] md:w-[3.125rem]"
       />
       <div>
-        <div className="flex items-center gap-3 mb-3">
-          <h1 className="text-[2rem] md:text-[2.5rem]">{board.title}</h1>
+        <h1 className="text-[2rem] md:text-[2.5rem] mb-3">
+          {board.title}{" "}
           <button>
             <Image
               src="/assets/Edit_duotone.svg"
@@ -29,8 +29,8 @@ const BoardInfo = ({ board }: Props) => {
               className="h-[1.56rem] w-[1.56rem] md:h-[1.875rem] md:w-[1.875rem]"
             />
           </button>
-        </div>
-        <p>{board.desc}</p>
+        </h1>
+        {board.desc && <p>{board.desc}</p>}
       </div>
     </div>
   );

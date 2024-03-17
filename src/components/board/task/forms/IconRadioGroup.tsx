@@ -1,8 +1,13 @@
 import { icons } from "@/constants";
+import { $Enums } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 
-const IconRadioGroup = () => {
+type Props = {
+  defaultValue: $Enums.Icon;
+};
+
+const IconRadioGroup = ({ defaultValue }: Props) => {
   return (
     <div className="icon-radio-group">
       {Object.entries(icons).map(([key, value], index) => (
@@ -12,10 +17,11 @@ const IconRadioGroup = () => {
             id={key}
             name="icon"
             value={key}
-            defaultChecked={index === 0}
+            defaultChecked={key === defaultValue}
           />
           <label htmlFor={key}>
-            <Image src={value} alt={`${key} icon`} width={25} height={25} />
+            <span className="sr-only">Select {key} icon</span>
+            <Image src={value} alt="" width={25} height={25} />
           </label>
         </div>
       ))}

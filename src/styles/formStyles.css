@@ -10,6 +10,10 @@
     @apply text-[#97A3B6]
 }
 
+.label-error{
+    @apply text-red-500
+}
+
 .input{
     @apply border rounded-md text-black py-2 px-3 w-full
 }

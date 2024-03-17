@@ -1,8 +1,8 @@
 import Board from "@/components/board";
-import AddTask from "@/components/board/task/forms/AddTask";
 import { Fragment, Suspense } from "react";
 import { getUserBoard } from "@/lib/user";
 import { unstable_noStore as noStore } from "next/cache";
+import TaskForms from "@/components/board/task/TaskForms";
 
 export default async function Home() {
   noStore();
@@ -15,7 +15,7 @@ export default async function Home() {
           {userBoard ? (
             <Fragment>
               <Board board={userBoard} />
-              <AddTask boardId={userBoard.id} />
+              <TaskForms boardId={userBoard.id} />
             </Fragment>
           ) : (
             <div>Create your first board</div>

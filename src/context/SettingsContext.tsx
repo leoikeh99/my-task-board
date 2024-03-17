@@ -1,21 +1,14 @@
 "use client";
+import { Task } from "@prisma/client";
 import { createContext, useState } from "react";
 
 type ContextState = {
   sidebar: {
     type: "add task" | "edit task";
-    data?: {
-      name: string;
-      desc: string;
-      icon: Icon;
-      status: Status;
-    };
+    taskData?: Task;
   } | null;
   closeSidebar: () => void;
-  openSideBar: (
-    type: "add task" | "edit task",
-    data?: { name: string; desc: string; icon: Icon; status: Status }
-  ) => void;
+  openSideBar: (type: "add task" | "edit task", taskData?: Task) => void;
 };
 
 const contextDefaultValues: ContextState = {
@@ -31,10 +24,8 @@ const SettingsProvider = ({ children }: { children: React.ReactNode }) => {
 
   const closeSidebar = () => setSidebar(null);
 
-  const openSideBar = (
-    type: "add task" | "edit task",
-    data?: { name: string; desc: string; icon: Icon; status: Status }
-  ) => setSidebar({ type, data });
+  const openSideBar = (type: "add task" | "edit task", taskData?: Task) =>
+    setSidebar({ type, taskData });
 
   return (
     <SettingsContext.Provider value={{ sidebar, closeSidebar, openSideBar }}>

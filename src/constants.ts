@@ -6,13 +6,18 @@ export const icons = {
 };
 
 export const statusInfo = {
+  TODO: {
+    icon: "/assets/todo.svg",
+    iconBg: "#1e293b",
+    bg: "#E3E8EF",
+    title: "To Do",
+  },
   IN_PROGRESS: {
     icon: "/assets/Time_atack_duotone.svg",
     iconBg: "#E9A23B",
     bg: "#F5D565",
     title: "In Progress",
   },
-  TODO: { icon: undefined, iconBg: undefined, bg: "#E3E8EF", title: "To Do" },
   COMPLETED: {
     icon: "/assets/Done_round_duotone.svg",
     iconBg: "#32D657",

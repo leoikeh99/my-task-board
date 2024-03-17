@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Board" ALTER COLUMN "desc" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Task" ALTER COLUMN "desc" DROP NOT NULL;

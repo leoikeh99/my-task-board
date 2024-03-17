@@ -11,13 +11,7 @@ const Tasks = ({ tasks }: Props) => {
   return (
     <div className="grid gap-3 mb-3 sm:gap-5 sm:mb-5">
       {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          title={task.title}
-          desc={task.desc}
-          icon={task.icon}
-          status={task.status}
-        />
+        <TaskItem key={task.id} task={task} />
       ))}
     </div>
   );

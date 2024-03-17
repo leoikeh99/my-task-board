@@ -60,21 +60,21 @@ model VerificationToken {
 }
 
 model Board {
-  id     String @id @default(cuid())
+  id     String  @id @default(cuid())
   title  String
-  desc   String
+  desc   String?
   tasks  Task[]
-  owner  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  owner  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 }
 
 model Task {
-  id      String @id @default(cuid())
+  id      String  @id @default(cuid())
   title   String
-  desc    String
+  desc    String?
   icon    Icon
   status  Status
-  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  board   Board   @relation(fields: [boardId], references: [id], onDelete: Cascade)
   boardId String
 }
 
