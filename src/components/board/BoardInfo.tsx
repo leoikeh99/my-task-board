@@ -1,13 +1,15 @@
 "use client";
+import { SettingsContext } from "@/context/SettingsContext";
 import { Board } from "@prisma/client";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 
 type Props = {
   board: Board;
 };
 
 const BoardInfo = ({ board }: Props) => {
+  const { openDialog } = useContext(SettingsContext);
   return (
     <div className="xxs:flex items-start gap-2 xs:gap-4 mb-10">
       <Image
@@ -20,7 +22,7 @@ const BoardInfo = ({ board }: Props) => {
       <div>
         <h1 className="text-[2rem] md:text-[2.5rem] mb-3">
           {board.title}{" "}
-          <button>
+          <button onClick={() => openDialog("edit board")}>
             <Image
               src="/assets/Edit_duotone.svg"
               alt="menu"

@@ -20,7 +20,7 @@ const AddTask = ({ boardId }: Props) => {
     title: "",
     desc: "",
     icon: "ALARM_CLOCK",
-    status: "IN_PROGRESS",
+    status: "TODO",
     errors: {
       title: undefined,
       desc: undefined,

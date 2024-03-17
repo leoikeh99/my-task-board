@@ -10,6 +10,7 @@ import { deleteTaskAction, editTaskAction } from "@/app/action";
 import { useFormState } from "react-dom";
 import { classNames } from "@/utils";
 import ActionButton from "@/components/forms/ActionButton";
+import { Dialog } from "@headlessui/react";
 
 const EditTask = () => {
   const { sidebar, closeSidebar } = useContext(SettingsContext);
@@ -17,7 +18,7 @@ const EditTask = () => {
     title: sidebar?.taskData?.title || "",
     desc: sidebar?.taskData?.desc || "",
     icon: sidebar?.taskData?.icon || "ALARM_CLOCK",
-    status: sidebar?.taskData?.status || "IN_PROGRESS",
+    status: sidebar?.taskData?.status || "TODO",
     errors: {
       title: undefined,
       desc: undefined,
@@ -44,7 +45,7 @@ const EditTask = () => {
   return (
     <div>
       <div className="flex justify-between items-center p-3 sticky top-0 left-0 w-full bg-white border-b-[1px] border-b-gray-300">
-        <p className="font-semibold text-xl">Edit task</p>
+        <Dialog.Title className="font-semibold text-xl">Edit task</Dialog.Title>
         <button
           className="border border-gray-300 rounded-md"
           onClick={closeSidebar}
@@ -129,17 +130,18 @@ const EditTask = () => {
             <StatusRadioGroup defaultValue={formState.status} />
           </div>
         </div>
-        <div className="flex justify-end gap-4 mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
+        <div className="flex flex-row-reverse justify-start gap-4 mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
+          <ActionButton
+            text="Save"
+            icon="/assets/done_round.svg"
+            type="submit"
+            action={wrappedEditTaskAction}
+          />
           <ActionButton
             text="Delete"
             icon="/assets/trash.svg"
             action={wrappedDeleteTaskAction}
             bg="bg-[#97A3B6]"
-          />
-          <ActionButton
-            text="Save"
-            icon="/assets/done_round.svg"
-            action={wrappedEditTaskAction}
           />
         </div>
       </form>
