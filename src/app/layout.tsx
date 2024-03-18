@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import SettingsProvider from "@/context/SettingsContext";
+import dynamic from "next/dynamic";
 
+const ToastProviderNoSSR = dynamic(() => import("@/components/ToastProvider"), {
+  ssr: false,
+});
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SettingsProvider>
-        <body className={outfit.className}>{children}</body>
+        <body className={outfit.className}>
+          <ToastProviderNoSSR />
+          {children}
+        </body>
       </SettingsProvider>
     </html>
   );

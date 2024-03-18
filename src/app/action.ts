@@ -82,9 +82,9 @@ export async function createTaskAction(
     return {
       ...data,
       errors: {
-        ...previousState.errors,
         title: titleErrors ? titleErrors[0] : undefined,
         desc: descErrors ? descErrors[0] : undefined,
+        main: undefined,
       },
       success: false,
     };
@@ -102,14 +102,19 @@ export async function createTaskAction(
     revalidatePath("/");
     return {
       ...data,
-      errors: previousState.errors,
+      errors: {
+        title: undefined,
+        desc: undefined,
+        main: undefined,
+      },
       success: true,
     };
   } catch (error) {
     return {
       ...data,
       errors: {
-        ...previousState.errors,
+        title: undefined,
+        desc: undefined,
         main: "Something went wrong, try again.",
       },
       success: false,
@@ -159,9 +164,9 @@ export async function editTaskAction(
     return {
       ...data,
       errors: {
-        ...previousState.errors,
         title: titleErrors ? titleErrors[0] : undefined,
         desc: descErrors ? descErrors[0] : undefined,
+        main: undefined,
       },
       success: false,
     };
@@ -188,7 +193,8 @@ export async function editTaskAction(
     return {
       ...data,
       errors: {
-        ...previousState.errors,
+        title: undefined,
+        desc: undefined,
         main: "Something went wrong, try again.",
       },
       success: false,
@@ -212,7 +218,11 @@ export async function deleteTaskAction(
     return { errors: previousState.errors, success: true };
   } catch (error) {
     return {
-      errors: { main: "Something went wrong, try again." },
+      errors: {
+        title: undefined,
+        desc: undefined,
+        main: "Something went wrong, try again.",
+      },
       success: false,
     };
   }
@@ -262,9 +272,9 @@ export async function createBoardAction(
     return {
       ...data,
       errors: {
-        ...previousState.errors,
         title: titleErrors ? titleErrors[0] : undefined,
         desc: descErrors ? descErrors[0] : undefined,
+        main: undefined,
       },
       success: false,
     };
@@ -282,14 +292,19 @@ export async function createBoardAction(
     revalidatePath("/");
     return {
       ...data,
-      errors: previousState.errors,
+      errors: {
+        title: undefined,
+        desc: undefined,
+        main: undefined,
+      },
       success: true,
     };
   } catch (error) {
     return {
       ...data,
       errors: {
-        ...previousState.errors,
+        title: undefined,
+        desc: undefined,
         main: "Something went wrong, try again.",
       },
       success: false,
@@ -337,9 +352,9 @@ export async function editBoardAction(
     return {
       ...data,
       errors: {
-        ...previousState.errors,
         title: titleErrors ? titleErrors[0] : undefined,
         desc: descErrors ? descErrors[0] : undefined,
+        main: undefined,
       },
       success: false,
     };
@@ -359,14 +374,19 @@ export async function editBoardAction(
     revalidatePath("/");
     return {
       ...data,
-      errors: previousState.errors,
+      errors: {
+        title: undefined,
+        desc: undefined,
+        main: undefined,
+      },
       success: true,
     };
   } catch (error) {
     return {
       ...data,
       errors: {
-        ...previousState.errors,
+        title: undefined,
+        desc: undefined,
         main: "Something went wrong, try again.",
       },
       success: false,

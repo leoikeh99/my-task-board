@@ -10,6 +10,7 @@ import { editBoardAction } from "@/app/action";
 import IconCover from "@/components/ui/IconCover";
 import Image from "next/image";
 import { classNames } from "@/utils";
+import { toast } from "react-toastify";
 
 type Props = {
   board: Board;
@@ -33,6 +34,9 @@ const EditBoard = ({ board }: Props) => {
   useEffect(() => {
     if (formState.success) {
       closeDialog();
+    }
+    if (!formState.success && formState.errors.main) {
+      toast.error(formState.errors.main);
     }
   }, [formState]);
 

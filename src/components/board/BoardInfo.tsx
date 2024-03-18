@@ -3,6 +3,7 @@ import { SettingsContext } from "@/context/SettingsContext";
 import { Board } from "@prisma/client";
 import Image from "next/image";
 import React, { useContext } from "react";
+import SignOutButton from "../auth/SignOutButton";
 
 type Props = {
   board: Board;
@@ -33,6 +34,18 @@ const BoardInfo = ({ board }: Props) => {
           </button>
         </h1>
         {board.desc && <p>{board.desc}</p>}
+        <SignOutButton>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/assets/logout.svg"
+              alt="menu"
+              width={0}
+              height={0}
+              className="h-[1.1rem] w-[1.1rem]"
+            />
+            <p className="text-red-400">Logout</p>
+          </div>
+        </SignOutButton>
       </div>
     </div>
   );
