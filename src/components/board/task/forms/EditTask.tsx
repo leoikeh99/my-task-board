@@ -11,6 +11,7 @@ import { useFormState } from "react-dom";
 import { classNames } from "@/utils";
 import ActionButton from "@/components/forms/ActionButton";
 import { Dialog } from "@headlessui/react";
+import { toast } from "react-toastify";
 
 const EditTask = () => {
   const { sidebar, closeSidebar } = useContext(SettingsContext);
@@ -39,6 +40,12 @@ const EditTask = () => {
   useEffect(() => {
     if (formState.success || deleteState.success) {
       closeSidebar();
+    }
+    if (!formState.success && formState.errors.main) {
+      toast.error(formState.errors.main);
+    }
+    if (!deleteState.success && deleteState.errors.main) {
+      toast.error(deleteState.errors.main);
     }
   }, [formState, deleteState]);
 

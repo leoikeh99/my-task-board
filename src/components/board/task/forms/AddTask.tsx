@@ -10,6 +10,7 @@ import { createTaskAction } from "@/app/action";
 import { useFormState } from "react-dom";
 import { classNames } from "@/utils";
 import ActionButton from "@/components/forms/ActionButton";
+import { toast } from "react-toastify";
 
 type Props = {
   boardId: string;
@@ -35,6 +36,9 @@ const AddTask = ({ boardId }: Props) => {
   useEffect(() => {
     if (formState.success) {
       closeSidebar();
+    }
+    if (!formState.success && formState.errors.main) {
+      toast.error(formState.errors.main);
     }
   }, [formState]);
   return (

@@ -4,6 +4,8 @@ import ActionButton from "@/components/forms/ActionButton";
 import { classNames } from "@/utils";
 import { useFormState } from "react-dom";
 import "@/styles/formStyles.css";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CreateBoard = () => {
   const [formState, wrappedCreateBoardAction] = useFormState(
@@ -19,6 +21,13 @@ const CreateBoard = () => {
       success: false,
     }
   );
+
+  useEffect(() => {
+    if (!formState.success && formState.errors.main) {
+      toast.error(formState.errors.main);
+    }
+  }, [formState]);
+
   return (
     <div>
       <h1 className="text-[1.5rem] md:text-[2rem] mb-5">Create a Board</h1>
