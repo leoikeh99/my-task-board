@@ -13,17 +13,15 @@ export default async function Home() {
   return (
     <main>
       <div className="w-[min(93%,32rem)] m-auto pt-10 xs:pt-16 md:pt-24">
-        <Suspense fallback={<div>Loading...</div>}>
-          {userBoard ? (
-            <Fragment>
-              <Board board={userBoard} />
-              <TaskForms boardId={userBoard.id} />
-              <EditBoard board={userBoard} />
-            </Fragment>
-          ) : (
-            <CreateBoard />
-          )}
-        </Suspense>
+        {userBoard ? (
+          <Fragment>
+            <Board board={userBoard} />
+            <TaskForms boardId={userBoard.id} />
+            <EditBoard board={userBoard} />
+          </Fragment>
+        ) : (
+          <CreateBoard />
+        )}
       </div>
     </main>
   );
