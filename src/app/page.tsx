@@ -1,10 +1,15 @@
 import Board from "@/components/board";
-import { Fragment, Suspense } from "react";
+import { Fragment } from "react";
 import { getUserBoard } from "@/lib/user";
 import { unstable_noStore as noStore } from "next/cache";
 import TaskForms from "@/components/board/task/TaskForms";
 import EditBoard from "@/components/board/forms/EditBoard";
 import CreateBoard from "@/components/board/forms/CreateBoard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Task Board | Home",
+};
 
 export default async function Home() {
   noStore();

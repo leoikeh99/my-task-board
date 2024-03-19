@@ -69,13 +69,14 @@ model Board {
 }
 
 model Task {
-  id      String  @id @default(cuid())
-  title   String
-  desc    String?
-  icon    Icon
-  status  Status
-  board   Board   @relation(fields: [boardId], references: [id], onDelete: Cascade)
-  boardId String
+  id        String   @id @default(cuid())
+  title     String
+  desc      String?
+  icon      Icon
+  status    Status
+  board     Board    @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId   String
+  createdAt DateTime @default(now())
 }
 
 enum Status {
