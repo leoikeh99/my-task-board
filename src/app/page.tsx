@@ -6,6 +6,7 @@ import TaskForms from "@/components/board/task/TaskForms";
 import EditBoard from "@/components/board/forms/EditBoard";
 import CreateBoard from "@/components/board/forms/CreateBoard";
 import { Metadata } from "next";
+import DialogWrapper from "@/components/ui/DialogWrapper";
 
 export const metadata: Metadata = {
   title: "Task Board | Home",
@@ -22,7 +23,9 @@ export default async function Home() {
           <Fragment>
             <Board board={userBoard} />
             <TaskForms boardId={userBoard.id} />
-            <EditBoard board={userBoard} />
+            <DialogWrapper type="edit board">
+              <EditBoard board={userBoard} />
+            </DialogWrapper>
           </Fragment>
         ) : (
           <CreateBoard />

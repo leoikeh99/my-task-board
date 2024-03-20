@@ -47,7 +47,7 @@ const EditTask = () => {
     if (!deleteState.success && deleteState.errors.main) {
       toast.error(deleteState.errors.main);
     }
-  }, [formState, deleteState]);
+  }, [formState, deleteState, closeSidebar]);
 
   return (
     <div>
@@ -140,13 +140,13 @@ const EditTask = () => {
         <div className="flex flex-row-reverse justify-start gap-4 mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
           <ActionButton
             text="Save"
-            icon="/assets/done_round.svg"
+            icon="/assets/Done_round.svg"
             type="submit"
             action={wrappedEditTaskAction}
           />
           <ActionButton
             text="Delete"
-            icon="/assets/trash.svg"
+            icon="/assets/Trash.svg"
             action={wrappedDeleteTaskAction}
             bg="bg-[#97A3B6]"
           />

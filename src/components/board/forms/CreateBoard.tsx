@@ -82,7 +82,7 @@ const CreateBoard = () => {
         </div>
         <ActionButton
           text="Create Board"
-          icon="/assets/done_round.svg"
+          icon="/assets/Done_round.svg"
           bg="bg-[#3662E3]"
           action={wrappedCreateBoardAction}
         />

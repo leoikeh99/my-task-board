@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import TaskItem from "./TaskItem";
-import { Task } from "@prisma/client";
+import type { Task } from "@prisma/client";
 
 type Props = {
   tasks: Array<Task>;

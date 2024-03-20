@@ -40,7 +40,7 @@ const AddTask = ({ boardId }: Props) => {
     if (!formState.success && formState.errors.main) {
       toast.error(formState.errors.main);
     }
-  }, [formState]);
+  }, [formState, closeSidebar]);
   return (
     <div>
       <div className="flex justify-between items-center p-3 sticky top-0 left-0 w-full bg-white border-b-[1px] border-b-gray-300">
@@ -130,7 +130,7 @@ const AddTask = ({ boardId }: Props) => {
           </div>
         </div>
         <div className="flex justify-end mt-5 p-3 sticky bottom-0 left-0 bg-white border-t-[1px] border-t-gray-300">
-          <ActionButton text="Cretae task" icon="/assets/done_round.svg" />
+          <ActionButton text="Cretae task" icon="/assets/Done_round.svg" />
         </div>
       </form>
     </div>

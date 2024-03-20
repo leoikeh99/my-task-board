@@ -1,5 +1,5 @@
 "use client";
-import { Task } from "@prisma/client";
+import type { Task } from "@prisma/client";
 import { createContext, useState } from "react";
 
 type ContextState = {

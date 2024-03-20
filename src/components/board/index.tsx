@@ -5,7 +5,7 @@ import Tasks from "./task/Tasks";
 import IconCover from "../ui/IconCover";
 import Image from "next/image";
 import { SettingsContext } from "@/context/SettingsContext";
-import { Board, Task } from "@prisma/client";
+import type { Board, Task } from "@prisma/client";
 
 type Props = {
   board: Board & { tasks: Array<Task> };

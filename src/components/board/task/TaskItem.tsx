@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import IconCover from "../../ui/IconCover";
 import { icons, statusInfo } from "@/constants";
-import { Task } from "@prisma/client";
+import type { Task } from "@prisma/client";
 import { SettingsContext } from "@/context/SettingsContext";
 
 type Props = {

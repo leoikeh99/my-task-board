@@ -1,6 +1,6 @@
 "use client";
 import { SettingsContext } from "@/context/SettingsContext";
-import { Board } from "@prisma/client";
+import type { Board } from "@prisma/client";
 import Image from "next/image";
 import React, { useContext } from "react";
 import SignOutButton from "../auth/SignOutButton";

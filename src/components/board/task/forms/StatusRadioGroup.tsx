@@ -1,6 +1,6 @@
 import IconCover from "@/components/ui/IconCover";
 import { statusInfo } from "@/constants";
-import { $Enums } from "@prisma/client";
+import type { $Enums } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 
@@ -32,7 +32,7 @@ const StatusRadioGroup = ({ defaultValue }: Props) => {
             {value.title}
             <span className="bg-[#3662E3] rounded-full h-[20px] w-[20px] flex items-center justify-center ml-auto">
               <Image
-                src="/assets/done_round.svg"
+                src="/assets/Done_round.svg"
                 alt=""
                 width={13}
                 height={13}

@@ -1,5 +1,5 @@
 import { icons } from "@/constants";
-import { $Enums } from "@prisma/client";
+import type { $Enums } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 

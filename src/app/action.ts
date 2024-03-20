@@ -1,7 +1,7 @@
 "use server";
 import prisma from "@/lib/prisma";
 import { wordCountValidator } from "@/utils";
-import { $Enums } from "@prisma/client";
+import type { $Enums } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import authOptions from "./api/auth/[...nextauth]/authOptions";
