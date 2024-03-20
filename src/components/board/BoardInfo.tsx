@@ -43,7 +43,7 @@ const BoardInfo = ({ board }: Props) => {
               height={0}
               className="h-[1.1rem] w-[1.1rem]"
             />
-            <p className="text-red-400">Logout</p>
+            <p className="text-red-700 font-medium">Logout</p>
           </div>
         </SignOutButton>
       </div>
